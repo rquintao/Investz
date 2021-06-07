@@ -9,6 +9,7 @@ namespace Investz
 {
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -19,6 +20,13 @@ namespace Investz
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add Cors
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.WithOrigins("http://localhost:4200")
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -37,6 +45,8 @@ namespace Investz
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Investz v1"));
             }
 
+            app.UseCors("MyPolicy");
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -47,6 +57,7 @@ namespace Investz
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }
