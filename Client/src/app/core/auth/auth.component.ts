@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthComponent implements OnInit {
 
+  pubPath: string = "/assets/pub/filler.jpg";
+  logo: string = "/assets/logos/justLogo.PNG";
+
   constructor() { }
 
   ngOnInit() {
