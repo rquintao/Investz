@@ -1,3 +1,4 @@
+using Investz.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -33,6 +34,8 @@ namespace Investz
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Investz", Version = "v1" });
             });
+
+            services.AddAsymmetricAuthentication();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +54,7 @@ namespace Investz
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
