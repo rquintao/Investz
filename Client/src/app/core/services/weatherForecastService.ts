@@ -6,7 +6,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class WeatherForecastService{
 
-    path: string = 'https://localhost:5001/WeatherForecast'
+    path: string = 'https://localhost:5001/api/WeatherForecast'
 
     constructor(private http: HttpClient) { }
 
