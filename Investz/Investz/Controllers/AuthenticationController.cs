@@ -1,6 +1,8 @@
 ﻿using Investz.Exceptions;
 using Investz.Interfaces;
 using Investz.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Investz.Controllers
@@ -9,7 +11,7 @@ namespace Investz.Controllers
     [ApiController]
     public class AuthenticationController : ControllerBase
     {
-        private IAuthenticationService authenticationService;
+        private readonly IAuthenticationService authenticationService;
 
         public AuthenticationController(IAuthenticationService authenticationService)
         {
@@ -28,6 +30,12 @@ namespace Investz.Controllers
             {
                 return Unauthorized();
             }
+        }
+
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public IActionResult Validate()
+        {
+            return Ok();
         }
     }
 }
