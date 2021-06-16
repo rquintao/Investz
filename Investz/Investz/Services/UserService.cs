@@ -34,7 +34,10 @@ namespace Investz.Services
 
         public void ValidateCredentials(UserCredentials userCredentials)
         {
-            if (!users.Contains(userCredentials))
+            User user = GetUser();
+
+
+            if (user.Username != userCredentials.Username || user.Password != userCredentials.Password)
             {
                 throw new InvalidCredentialsException();
             }

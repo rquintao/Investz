@@ -1,4 +1,6 @@
 using Investz.Extensions;
+using Investz.Interfaces;
+using Investz.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +23,10 @@ namespace Investz
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IAuthenticationService, AuthenticationService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ITokenService, TokenService>();
+
             // Add Cors
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
