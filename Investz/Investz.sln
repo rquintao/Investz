@@ -20,6 +20,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Tests", "5. Tests", "{AA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investz.Shared", "Investz.Shared\Investz.Shared.csproj", "{9BFA4AE4-A6E7-4F0A-9290-D58B7C9588BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investz.Data", "Investz.Data\Investz.Data.csproj", "{75CCB94A-0F67-428C-AC73-B1DF623A2721}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9BFA4AE4-A6E7-4F0A-9290-D58B7C9588BC} = {9BFA4AE4-A6E7-4F0A-9290-D58B7C9588BC}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +39,10 @@ Global
 		{9BFA4AE4-A6E7-4F0A-9290-D58B7C9588BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BFA4AE4-A6E7-4F0A-9290-D58B7C9588BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BFA4AE4-A6E7-4F0A-9290-D58B7C9588BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75CCB94A-0F67-428C-AC73-B1DF623A2721}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75CCB94A-0F67-428C-AC73-B1DF623A2721}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75CCB94A-0F67-428C-AC73-B1DF623A2721}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75CCB94A-0F67-428C-AC73-B1DF623A2721}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +50,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9145943D-0679-4A1D-B948-38E2AB231787} = {A8BB1DC7-6604-43F5-83FB-F70F8FE719DF}
 		{9BFA4AE4-A6E7-4F0A-9290-D58B7C9588BC} = {D96F4C33-64E3-4FF5-AD42-1233D37E309C}
+		{75CCB94A-0F67-428C-AC73-B1DF623A2721} = {9A972747-7A81-419C-91B5-E72C0E56499C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {143F94FB-0950-418B-A059-440290CE98B7}

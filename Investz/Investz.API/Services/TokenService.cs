@@ -21,7 +21,7 @@ namespace Investz.Services
 
         public string GetToken(string username)
         {
-            User user = userService.GetUser();
+            User user = userService.GetUser(username);
             SecurityTokenDescriptor tokenDescriptor = GetTokenDescriptor(user);
 
             var tokenHandler = new JwtSecurityTokenHandler();

@@ -1,8 +1,8 @@
 ﻿using Investz.Exceptions;
 using Investz.Interfaces;
 using Investz.Models;
+using Investz.Shared.Interfaces.Repositories;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Investz.Services
 {
@@ -10,31 +10,21 @@ namespace Investz.Services
     {
         public readonly IEnumerable<UserCredentials> users;
 
-        public UserService()
+        private readonly IUserRepository userRepository;
+
+        public UserService(IUserRepository userRepository)
         {
-            users = new List<UserCredentials>
-        {
-            new UserCredentials
-            {
-                Username = "john.doe",
-                Password = "john.password"
-            }
-        };
+            this.userRepository = userRepository;
         }
 
-        public User GetUser()
+        public User GetUser(string username)
         {
-            return new User()
-            {
-                Username = "john.doe",
-                Password = "john.password",
-                Roles = new List<string>() { "admin" }
-            };
+            return userRepository.GetUser(username);
         }
 
         public void ValidateCredentials(UserCredentials userCredentials)
         {
-            User user = GetUser();
+            User user = GetUser(userCredentials.Username);
 
 
             if (user.Username != userCredentials.Username || user.Password != userCredentials.Password)

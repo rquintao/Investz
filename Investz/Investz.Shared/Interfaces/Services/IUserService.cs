@@ -7,6 +7,6 @@ namespace Investz.Interfaces
     {
         public void ValidateCredentials(UserCredentials userCredentials);
 
-        public User GetUser();
+        public User GetUser(string username);
     }
 }
