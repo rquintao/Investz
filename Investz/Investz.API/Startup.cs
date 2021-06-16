@@ -1,4 +1,3 @@
-using Investz.Extensions;
 using Investz.Interfaces;
 using Investz.Services;
 using Microsoft.AspNetCore.Builder;
@@ -41,7 +40,7 @@ namespace Investz
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Investz", Version = "v1" });
             });
 
-            services.AddAsymmetricAuthentication();
+            //services.AddAsymmetricAuthentication();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

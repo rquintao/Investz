@@ -8,3 +8,9 @@
 /.vs/Investz/v16
 /.vs
 /Investz/.vs/Investz/DesignTimeBuild
+/Investz/packages/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1
+/Investz/Investz.API/bin/Debug/net5.0
+/Investz/Investz.API/obj
+/Investz/Investz.Shared/obj
+/Investz/Investz.Shared/bin/Debug
+/Investz/.vs/Investz/config

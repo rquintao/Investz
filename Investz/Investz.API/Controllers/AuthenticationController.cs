@@ -19,6 +19,7 @@ namespace Investz.Controllers
         }
 
         [HttpPost]
+        [Route("Authenticate")]
         public IActionResult Authenticate([FromBody] UserCredentials userCredentials)
         {
             try
@@ -33,6 +34,8 @@ namespace Investz.Controllers
         }
 
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [HttpPost]
+        [Route("Validate")]
         public IActionResult Validate()
         {
             return Ok();

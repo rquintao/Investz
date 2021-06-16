@@ -3,7 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investz", "Investz\Investz.csproj", "{9145943D-0679-4A1D-B948-38E2AB231787}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Investz.API", "Investz.API\Investz.API.csproj", "{9145943D-0679-4A1D-B948-38E2AB231787}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9BFA4AE4-A6E7-4F0A-9290-D58B7C9588BC} = {9BFA4AE4-A6E7-4F0A-9290-D58B7C9588BC}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Presentation", "1. Presentation", "{2720D25A-C372-42C8-8F16-42F3CD5E288E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Services", "2. Services", "{A8BB1DC7-6604-43F5-83FB-F70F8FE719DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Database", "3. Database", "{9A972747-7A81-419C-91B5-E72C0E56499C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Shared", "4. Shared", "{D96F4C33-64E3-4FF5-AD42-1233D37E309C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Tests", "5. Tests", "{AAD6AE66-457B-4ED0-8474-863DE5F7995D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Investz.Shared", "Investz.Shared\Investz.Shared.csproj", "{9BFA4AE4-A6E7-4F0A-9290-D58B7C9588BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +30,17 @@ Global
 		{9145943D-0679-4A1D-B948-38E2AB231787}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9145943D-0679-4A1D-B948-38E2AB231787}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9145943D-0679-4A1D-B948-38E2AB231787}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BFA4AE4-A6E7-4F0A-9290-D58B7C9588BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BFA4AE4-A6E7-4F0A-9290-D58B7C9588BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BFA4AE4-A6E7-4F0A-9290-D58B7C9588BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BFA4AE4-A6E7-4F0A-9290-D58B7C9588BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9145943D-0679-4A1D-B948-38E2AB231787} = {A8BB1DC7-6604-43F5-83FB-F70F8FE719DF}
+		{9BFA4AE4-A6E7-4F0A-9290-D58B7C9588BC} = {D96F4C33-64E3-4FF5-AD42-1233D37E309C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {143F94FB-0950-418B-A059-440290CE98B7}
