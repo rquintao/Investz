@@ -1,9 +1,10 @@
 ﻿using Investz.Models;
+using System.Threading.Tasks;
 
 namespace Investz.Shared.Interfaces.Repositories
 {
     public interface IUserRepository
     {
-        public User GetUser(string username);
+        public Task<User> GetUser(string username);
     }
 }

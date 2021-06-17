@@ -2,6 +2,7 @@
 using Investz.Shared.Interfaces.Repositories;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Investz.Data.Repositories
 {
@@ -28,9 +29,9 @@ namespace Investz.Data.Repositories
             };
         }
 
-        public User GetUser(string username)
+        public Task<User> GetUser(string username)
         {
-            return users.SingleOrDefault(u => u.Username.Equals(username));
+            return Task.FromResult(users.SingleOrDefault(u => u.Username.Equals(username)));
         }
 
     }

@@ -1,7 +1,9 @@
-﻿namespace Investz.Interfaces
+﻿using System.Threading.Tasks;
+
+namespace Investz.Interfaces
 {
     public interface ITokenService
     {
-        public string GetToken(string username);
+        public Task<string> GetToken(string username);
     }
 }

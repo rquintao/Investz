@@ -4,6 +4,7 @@ using Investz.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace Investz.Controllers
 {
@@ -19,11 +20,11 @@ namespace Investz.Controllers
         }
 
         [HttpPost]
-        public IActionResult Authenticate([FromBody] UserCredentials userCredentials)
+        public async Task<IActionResult> Authenticate([FromBody] UserCredentials userCredentials)
         {
             try
             {
-                string token = authenticationService.Authenticate(userCredentials);
+                string token = await authenticationService.Authenticate(userCredentials);
                 return Ok(token);
             }
             catch (InvalidLoginException)

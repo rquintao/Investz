@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Investz.Services
 {
@@ -19,9 +20,9 @@ namespace Investz.Services
             signingAudienceCertificate = new SigningAudienceCertificate();
         }
 
-        public string GetToken(string username)
+        public async Task<string> GetToken(string username)
         {
-            User user = userService.GetUser(username);
+            User user = await userService.GetUser(username);
             SecurityTokenDescriptor tokenDescriptor = GetTokenDescriptor(user);
 
             var tokenHandler = new JwtSecurityTokenHandler();

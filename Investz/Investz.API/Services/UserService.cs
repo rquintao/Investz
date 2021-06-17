@@ -3,6 +3,7 @@ using Investz.Interfaces;
 using Investz.Models;
 using Investz.Shared.Interfaces.Repositories;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Investz.Services
 {
@@ -17,14 +18,16 @@ namespace Investz.Services
             this.userRepository = userRepository;
         }
 
-        public User GetUser(string username)
+        public async Task<User> GetUser(string username)
         {
-            return userRepository.GetUser(username);
+            User user = await userRepository.GetUser(username);
+
+            return user;
         }
 
-        public void ValidateCredentials(UserCredentials userCredentials)
+        public async Task ValidateCredentials(UserCredentials userCredentials)
         {
-            User user = GetUser(userCredentials.Username);
+            User user = await GetUser(userCredentials.Username);
 
 
             if (user.Username != userCredentials.Username || user.Password != userCredentials.Password)

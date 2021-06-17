@@ -1,12 +1,12 @@
 ﻿using Investz.Models;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Investz.Interfaces
 {
     public interface IUserService
     {
-        public void ValidateCredentials(UserCredentials userCredentials);
+        public Task ValidateCredentials(UserCredentials userCredentials);
 
-        public User GetUser(string username);
+        public Task<User> GetUser(string username);
     }
 }

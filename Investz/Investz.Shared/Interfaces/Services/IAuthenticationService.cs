@@ -1,9 +1,10 @@
 ﻿using Investz.Models;
+using System.Threading.Tasks;
 
 namespace Investz.Interfaces
 {
     public interface IAuthenticationService
     {
-        public string Authenticate(UserCredentials userCredentials);
+        public Task<string> Authenticate(UserCredentials userCredentials);
     }
 }
