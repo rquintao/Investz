@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { WeatherForecastComponent } from './components/weather-forecast/weather-forecast.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthComponent } from './core/auth/auth.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { AuthComponent } from './core/auth/auth.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

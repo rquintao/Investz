@@ -8,7 +8,7 @@ import { WeatherForecastService } from 'src/app/core/services/weatherForecastSer
 })
 export class WeatherForecastComponent implements OnInit {
 
-  private json:string;
+  public json:string;
 
   constructor(private weatherService: WeatherForecastService) { }
 
