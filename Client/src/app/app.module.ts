@@ -6,8 +6,11 @@ import { AppComponent } from './app.component';
 import { WeatherForecastComponent } from './components/weather-forecast/weather-forecast.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthComponent } from './core/auth/auth.component';
-import { MatSliderModule } from '@angular/material/slider';
+import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {ReactiveFormsModule} from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
