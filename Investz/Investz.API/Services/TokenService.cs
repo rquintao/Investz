@@ -22,7 +22,7 @@ namespace Investz.Services
 
         public async Task<string> GetToken(string username)
         {
-            User user = await userService.GetUser(username);
+            UserDto user = await userService.GetUser(username);
             SecurityTokenDescriptor tokenDescriptor = GetTokenDescriptor(user);
 
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -32,7 +32,7 @@ namespace Investz.Services
             return token;
         }
 
-        private SecurityTokenDescriptor GetTokenDescriptor(User user)
+        private SecurityTokenDescriptor GetTokenDescriptor(UserDto user)
         {
             const int expiringDays = 7;
 

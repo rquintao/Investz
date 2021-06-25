@@ -1,5 +1,7 @@
+using Investz.Data.Repositories;
 using Investz.Interfaces;
 using Investz.Services;
+using Investz.Shared.Interfaces.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +27,7 @@ namespace Investz
             services.AddScoped<IAuthenticationService, AuthenticationService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             // Add Cors
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>

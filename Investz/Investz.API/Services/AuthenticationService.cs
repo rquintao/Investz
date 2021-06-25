@@ -17,7 +17,7 @@ namespace Investz.Services
             this.tokenService = tokenService;
         }
 
-        public async Task<string> Authenticate(UserCredentials userCredentials)
+        public async Task<string> Authenticate(UserCredentialsDto userCredentials)
         {
             await userService.ValidateCredentials(userCredentials);
             string securityToken = await tokenService.GetToken(userCredentials.Username);

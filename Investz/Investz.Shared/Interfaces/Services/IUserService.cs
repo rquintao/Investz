@@ -5,8 +5,8 @@ namespace Investz.Interfaces
 {
     public interface IUserService
     {
-        public Task ValidateCredentials(UserCredentials userCredentials);
+        public Task ValidateCredentials(UserCredentialsDto userCredentials);
 
-        public Task<User> GetUser(string username);
+        public Task<UserDto> GetUser(string username);
     }
 }

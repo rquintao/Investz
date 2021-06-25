@@ -1,4 +1,6 @@
-﻿using Investz.Exceptions;
+﻿using AutoMapper;
+using Investz.Data.Entities;
+using Investz.Exceptions;
 using Investz.Interfaces;
 using Investz.Models;
 using Investz.Shared.Interfaces.Repositories;
@@ -9,7 +11,7 @@ namespace Investz.Services
 {
     public class UserService : IUserService
     {
-        public readonly IEnumerable<UserCredentials> users;
+        public readonly IEnumerable<UserCredentialsDto> users;
 
         private readonly IUserRepository userRepository;
 
@@ -18,16 +20,22 @@ namespace Investz.Services
             this.userRepository = userRepository;
         }
 
-        public async Task<User> GetUser(string username)
+        public async Task<UserDto> GetUser(string username)
         {
-            User user = await userRepository.GetUser(username);
+            UserEntity userEntity = await userRepository.GetUser(username);
 
-            return user;
+            UserDto dto = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<UserEntity, UserDto>();
+               // cfg.ForAllMaps((map, exp) => exp.ForAllOtherMembers(opt => opt.Ignore()));
+            }).CreateMapper().Map<UserDto>(userEntity);
+
+            return dto;
         }
 
-        public async Task ValidateCredentials(UserCredentials userCredentials)
+        public async Task ValidateCredentials(UserCredentialsDto userCredentials)
         {
-            User user = await GetUser(userCredentials.Username);
+            UserDto user = await GetUser(userCredentials.Username);
 
 
             if (user.Username != userCredentials.Username || user.Password != userCredentials.Password)

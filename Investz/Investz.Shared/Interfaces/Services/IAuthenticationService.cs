@@ -5,6 +5,6 @@ namespace Investz.Interfaces
 {
     public interface IAuthenticationService
     {
-        public Task<string> Authenticate(UserCredentials userCredentials);
+        public Task<string> Authenticate(UserCredentialsDto userCredentials);
     }
 }

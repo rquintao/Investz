@@ -4,7 +4,7 @@ using System.Security.Claims;
 
 namespace Investz.Models
 {
-    public class User
+    public class UserDto
     {
         public string Username { get; set; }
         public string Password { get; set; }

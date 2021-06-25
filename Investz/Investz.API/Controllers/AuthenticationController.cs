@@ -20,7 +20,7 @@ namespace Investz.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Authenticate([FromBody] UserCredentials userCredentials)
+        public async Task<IActionResult> Authenticate([FromBody] UserCredentialsDto userCredentials)
         {
             try
             {
