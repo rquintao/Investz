@@ -37,6 +37,9 @@ namespace Investz.Services
         {
             UserDto user = await GetUser(userCredentials.Username);
 
+            if (user is null) {
+                throw new InvalidLoginException("User does not exist");
+            }
 
             if (user.Username != userCredentials.Username || user.Password != userCredentials.Password)
             {

@@ -1,4 +1,5 @@
 using Investz.Data.Repositories;
+using Investz.Database.Core;
 using Investz.Interfaces;
 using Investz.Services;
 using Investz.Shared.Interfaces.Repositories;
@@ -28,6 +29,7 @@ namespace Investz
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ICoreContext, CoreContext>();
 
             // Add Cors
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
