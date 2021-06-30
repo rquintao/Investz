@@ -1,5 +1,6 @@
 ﻿using Investz.Interfaces;
 using Investz.Models;
+using Investz.Shared.Models;
 using System.Threading.Tasks;
 
 namespace Investz.Services
@@ -17,12 +18,12 @@ namespace Investz.Services
             this.tokenService = tokenService;
         }
 
-        public async Task<string> Authenticate(UserCredentialsDto userCredentials)
+        public async Task<ResponseSingleDto<string>> Authenticate(UserCredentialsDto userCredentials)
         {
             await userService.ValidateCredentials(userCredentials);
             string securityToken = await tokenService.GetToken(userCredentials.Username);
 
-            return securityToken;
+            return new ResponseSingleDto<string>() { Entity = securityToken };
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Investz.Shared.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -27,16 +28,21 @@ namespace Investz.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecastDto> Get()
+        public ResponseListDto<WeatherForecastDto> Get()
         {
             var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecastDto
+
+            ResponseListDto<WeatherForecastDto> dtoOut = new();
+
+             dtoOut.EntityList = Enumerable.Range(1, 5).Select(index => new WeatherForecastDto
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+
+            return dtoOut;
         }
     }
 }

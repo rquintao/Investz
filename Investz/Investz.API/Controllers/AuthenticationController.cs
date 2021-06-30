@@ -1,6 +1,7 @@
 ﻿using Investz.Exceptions;
 using Investz.Interfaces;
 using Investz.Models;
+using Investz.Shared.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -20,24 +21,24 @@ namespace Investz.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Authenticate([FromBody] UserCredentialsDto userCredentials)
+        public async Task<ResponseSingleDto<string>> Authenticate([FromBody] UserCredentialsDto userCredentials)
         {
             try
             {
-                string token = await authenticationService.Authenticate(userCredentials);
-                return Ok(token);
+                ResponseSingleDto<string> token = await authenticationService.Authenticate(userCredentials);
+                return token;
             }
-            catch (InvalidLoginException)
+            catch (InvalidLoginException e)
             {
-                return Unauthorized();
+                return new ResponseSingleDto<string>(e);
             }
         }
 
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost]
-        public IActionResult Validate()
+        public ResponseSingleDto<string> Validate()
         {
-            return Ok();
+            return new ResponseSingleDto<string>();
         }
     }
 }

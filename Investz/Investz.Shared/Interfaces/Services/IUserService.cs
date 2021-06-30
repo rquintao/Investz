@@ -1,4 +1,5 @@
 ﻿using Investz.Models;
+using Investz.Shared.Models;
 using System.Threading.Tasks;
 
 namespace Investz.Interfaces
@@ -7,6 +8,6 @@ namespace Investz.Interfaces
     {
         public Task ValidateCredentials(UserCredentialsDto userCredentials);
 
-        public Task<UserDto> GetUser(string username);
+        public Task<ResponseSingleDto<UserDto>> GetUser(string username);
     }
 }

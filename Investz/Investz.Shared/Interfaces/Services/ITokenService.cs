@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using Investz.Shared.Models;
+using System.Threading.Tasks;
 
 namespace Investz.Interfaces
 {
     public interface ITokenService
     {
-        public Task<string> GetToken(string username);
+        public Task<ResponseSingleDto<string>> GetToken(string username);
     }
 }

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Investz.Shared.Interfaces.Repositories
 {
-    public interface IUserRepository
+    public interface IUserRepository : IRepository<UserEntity>
     {
         public Task<UserEntity> GetUser(string username);
     }

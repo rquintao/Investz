@@ -1,6 +1,7 @@
 ﻿using Investz.Certificates;
 using Investz.Interfaces;
 using Investz.Models;
+using Investz.Shared.Models;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
@@ -20,7 +21,7 @@ namespace Investz.Services
             signingAudienceCertificate = new SigningAudienceCertificate();
         }
 
-        public async Task<string> GetToken(string username)
+        public async Task<ResponseSingleDto<string>> GetToken(string username)
         {
             UserDto user = await userService.GetUser(username);
             SecurityTokenDescriptor tokenDescriptor = GetTokenDescriptor(user);
@@ -29,7 +30,7 @@ namespace Investz.Services
             SecurityToken securityToken = tokenHandler.CreateToken(tokenDescriptor);
             string token = tokenHandler.WriteToken(securityToken);
 
-            return token;
+            return new ResponseSingleDto<string>() { Entity = token };
         }
 
         private SecurityTokenDescriptor GetTokenDescriptor(UserDto user)
